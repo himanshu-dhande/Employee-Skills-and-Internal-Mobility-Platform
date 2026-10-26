@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge | Employee Mobility Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <div>
+                <h2>SkillBridge</h2>
+                <p>EMPLOYEE PORTAL</p>
+            </div>
+        </div>
+
+        <p class="nav-heading">WORKSPACE</p>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">
+                <span>▦</span> Dashboard
+            </button>
+            <button class="nav-link" data-page="skills">
+                <span>◇</span> My Skills
+            </button>
+            <button class="nav-link" data-page="jobs">
+                <span>▤</span> Internal Opportunities
+            </button>
+            <button class="nav-link" data-page="career">
+                <span>↗</span> Career Growth
+            </button>
+            <button class="nav-link" data-page="profile">
+                <span>◎</span> My Profile
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-box">
+                <div class="help-icon">✦</div>
+                <h3>Grow your career</h3>
+                <p>Discover new skills and opportunities within your organization.</p>
+                <button class="text-button" data-go="career">Explore growth →</button>
+            </div>
+            <div class="user-mini">
+                <div class="avatar">HD</div>
+                <div>
+                    <strong id="sideName">Himanshu Dhande</strong>
+                    <small>Software Developer</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <button class="mobile-menu" id="menuToggle">☰</button>
+                <span class="breadcrumb">Workspace / <strong id="pageTitle">Dashboard</strong></span>
+            </div>
+            <div class="top-actions">
+                <span class="status-dot"></span>
+                <span class="top-label">Employee Portal</span>
+                <div class="avatar small-avatar">HD</div>
+            </div>
+        </header>
+
+        <section class="content">
+
+            <!-- DASHBOARD -->
+            <section class="page active" id="dashboard">
+                <div class="welcome-row">
+                    <div>
+                        <p class="eyebrow">YOUR CAREER, YOUR FUTURE</p>
+                        <h1>Welcome back, <span id="welcomeName">Himanshu</span> 👋</h1>
+                        <p class="muted">Discover your strengths and find your next opportunity.</p>
+                    </div>
+                    <button class="primary-btn" data-go="jobs">Explore opportunities ↗</button>
+                </div>
+
+                <div class="hero">
+                    <div class="hero-content">
+                        <span class="hero-tag">CAREER DEVELOPMENT</span>
+                        <h2>Your next big move<br>starts with your skills.</h2>
+                        <p>Understand your strengths, close skill gaps and discover internal roles that match your potential.</p>
+                        <button class="hero-btn" data-go="career">View career insights →</button>
+                    </div>
+                    <div class="hero-art">
+                        <div class="art-circle circle-one"></div>
+                        <div class="art-circle circle-two"></div>
+                        <div class="art-card">
+                            <span class="art-star">✦</span>
+                            <strong>Growth</strong>
+                            <div class="art-line"></div>
+                            <div class="art-line short"></div>
+                            <div class="art-progress"><span></span></div>
+                            <small>Keep learning!</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Your overview</h2>
+                        <p class="muted">A snapshot of your professional development.</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-top"><span>Skills Added</span><span class="stat-icon purple">◇</span></div>
+                        <h2 id="skillCount">5</h2>
+                        <p>Skills in your profile</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-top"><span>Career Matches</span><span class="stat-icon green">↗</span></div>
+                        <h2 id="matchCount">3</h2>
+                        <p>Potential role matches</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-top"><span>Learning Progress</span><span class="stat-icon orange">◎</span></div>
+                        <h2 id="learningPercent">65%</h2>
+                        <p>Overall learning target</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-top"><span>Applications</span><span class="stat-icon blue">▤</span></div>
+                        <h2 id="applicationCount">0</h2>
+                        <p>Roles applied for</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h2>My top skills</h2>
+                                <p class="muted">Your current skill proficiency</p>
+                            </div>
+                            <button class="text-button" data-go="skills">View all →</button>
+                        </div>
+                        <div id="topSkills" class="skill-list"></div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h2>Recommended for you</h2>
+                                <p class="muted">Explore roles that fit your skills</p>
+                            </div>
+                            <button class="text-button" data-go="jobs">See all →</button>
+                        </div>
+                        <div id="recommendedJobs" class="recommended-list"></div>
+                    </div>
+                </div>
+
+                <div class="panel activity-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Your next steps</h2>
+                            <p class="muted">Small actions can make a big difference.</p>
+                        </div>
+                    </div>
+                    <div class="steps-grid">
+                        <button class="step-card" data-go="skills">
+                            <span>01</span><strong>Update your skills</strong>
+                            <small>Keep your profile up to date.</small>
+                        </button>
+                        <button class="step-card" data-go="career">
+                            <span>02</span><strong>Find skill gaps</strong>
+                            <small>See what to learn next.</small>
+                        </button>
+                        <button class="step-card" data-go="jobs">
+                            <span>03</span><strong>Explore new roles</strong>
+                            <small>Find your next opportunity.</small>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MY SKILLS -->
+            <section class="page" id="skills">
+                <div class="page-header">
+                    <div>
+                        <p class="eyebrow">YOUR PROFESSIONAL PROFILE</p>
+                        <h1>My Skills</h1>
+                        <p class="muted">Manage your skills and track your proficiency.</p>
+                    </div>
+                    <button class="primary-btn" id="addSkillBtn">+ Add a skill</button>
+                </div>
+
+                <div class="notice">
+                    <span>✦</span>
+                    <div><strong>Showcase your strengths</strong>
+                    <p>Keep your technical and professional skills updated to improve internal role matching.</p></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div><h2>Skills inventory</h2><p class="muted">Your current skills and proficiency levels</p></div>
+                        <input type="search" id="skillSearch" class="search-input" placeholder="Search skills...">
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>SKILL</th><th>CATEGORY</th><th>PROFICIENCY</th><th>LEVEL</th><th>ACTION</th></tr></thead>
+                            <tbody id="skillsTable"></tbody>
+                        </table>
+                    </div>
+                    <p class="muted footnote">Demo data is stored in your browser. Connect a backend for persistent employee records.</p>
+                </div>
+            </section>
+
+            <!-- INTERNAL OPPORTUNITIES -->
+            <section class="page" id="jobs">
+                <div class="page-header">
+                    <div>
+                        <p class="eyebrow">TAKE THE NEXT STEP</p>
+                        <h1>Internal Opportunities</h1>
+                        <p class="muted">Explore roles that can help you grow within the organization.</p>
+                    </div>
+                </div>
+
+                <div class="job-banner">
+                    <div><h2>Your next opportunity could be here.</h2>
+                    <p>Find a role that matches your skills and career interests.</p></div>
+                    <span>↗</span>
+                </div>
+
+                <div class="filters">
+                    <input class="search-input" type="search" id="jobSearch" placeholder="Search job title or skills...">
+                    <select id="departmentFilter" class="search-input">
+                        <option value="All">All departments</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Data">Data & Analytics</option>
+                        <option value="Design">Design</option>
+                    </select>
+                </div>
+
+                <div class="job-grid" id="jobGrid"></div>
+            </section>
+
+            <!-- CAREER GROWTH -->
+            <section class="page" id="career">
+                <div class="page-header">
+                    <div>
+                        <p class="eyebrow">LEARN. IMPROVE. ADVANCE.</p>
+                        <h1>Career Growth</h1>
+                        <p class="muted">Build the skills you need for your next career move.</p>
+                    </div>
+                </div>
+
+                <div class="career-summary">
+                    <div class="panel">
+                        <p class="eyebrow">YOUR LEARNING JOURNEY</p>
+                        <h2>Keep moving forward</h2>
+                        <p class="muted">Your learning target is a starting point. Update it as you develop new skills.</p>
+                        <div class="big-progress"><span id="careerProgressBar"></span></div>
+                        <div class="progress-label"><strong id="careerProgressText">65% complete</strong><span>Learning target</span></div>
+                        <button class="primary-btn" id="progressBtn">Increase progress +10%</button>
+                    </div>
+                    <div class="panel focus-panel">
+                        <div class="focus-icon">✦</div>
+                        <h2>Your growth focus</h2>
+                        <p>Strengthen backend development and database knowledge to prepare for more software engineering opportunities.</p>
+                        <div class="tag-row"><span>Java</span><span>Spring Boot</span><span>SQL</span></div>
+                    </div>
+                </div>
+
+                <div class="section-heading"><div><h2>Suggested learning roadmap</h2><p class="muted">Example milestones for career development.</p></div></div>
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">01</div>
+                        <div><span class="pill completed">FOUNDATION</span><h3>Strengthen programming fundamentals</h3><p>Practice Java, object-oriented programming and problem solving.</p></div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">02</div>
+                        <div><span class="pill in-progress">IN PROGRESS</span><h3>Learn backend development</h3><p>Build REST APIs using Spring Boot and connect them to a database.</p></div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">03</div>
+                        <div><span class="pill upcoming">NEXT STEP</span><h3>Build and deploy a full-stack project</h3><p>Connect frontend and backend, test APIs and learn deployment basics.</p></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading"><div><h2>Skill gap overview</h2><p class="muted">Example comparison for a target Java Full Stack Developer role.</p></div></div>
+                    <div id="gapList" class="gap-list"></div>
+                    <p class="footnote muted">Illustrative recommendations only; these are not an official employee assessment.</p>
+                </div>
+            </section>
+
+            <!-- PROFILE -->
+            <section class="page" id="profile">
+                <div class="page-header">
+                    <div><p class="eyebrow">YOUR INFORMATION</p><h1>My Profile</h1>
+                    <p class="muted">Manage your professional details.</p></div>
+                </div>
+
+                <div class="panel profile-panel">
+                    <div class="profile-cover"></div>
+                    <div class="profile-intro">
+                        <div class="avatar profile-avatar">HD</div>
+                        <div><h2 id="profileDisplayName">Himanshu Dhande</h2><p class="muted">Software Developer</p></div>
+                    </div>
+
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group"><label for="fullName">Full name</label><input id="fullName" required value="Himanshu Dhande"></div>
+                        <div class="form-group"><label for="email">Email address</label><input id="email" type="email" placeholder="you@example.com"></div>
+                        <div class="form-group"><label for="department">Department</label><select id="profileDepartment"><option>Engineering</option><option>Data & Analytics</option><option>Design</option><option>Human Resources</option></select></div>
+                        <div class="form-group"><label for="jobTitle">Current role</label><input id="jobTitle" value="Software Developer"></div>
+                        <div class="form-group full-width"><label for="bio">Professional summary</label><textarea id="bio" rows="4" placeholder="Write a short summary about your skills and career goals..."></textarea></div>
+                        <div class="form-actions"><button class="primary-btn" type="submit">Save profile</button><span id="profileMessage" class="muted"></span></div>
+                    </form>
+                </div>
+            </section>
+
+            <footer class="footer">SkillBridge © 2026 · Employee Skills & Internal Mobility Platform</footer>
+        </section>
+    </main>
+</div>
+
+<!-- ADD SKILL MODAL -->
+<div class="modal-backdrop" id="skillModal">
+    <div class="modal">
+        <div class="modal-heading"><div><h2>Add a new skill</h2><p class="muted">Expand your professional profile.</p></div><button id="closeModal" class="close-btn" type="button">×</button></div>
+        <form id="skillForm">
+            <div class="form-group"><label for="newSkill">Skill name</label><input id="newSkill" required placeholder="e.g. Spring Boot"></div>
+            <div class="form-group"><label for="newCategory">Category</label><select id="newCategory"><option>Programming</option><option>Frontend</option><option>Backend</option><option>Database</option><option>Tools</option><option>Soft Skills</option></select></div>
+            <div class="form-group"><label for="newLevel">Proficiency</label><select id="newLevel"><option value="Beginner">Beginner</option><option value="Intermediate">Intermediate</option><option value="Advanced">Advanced</option></select></div>
+            <div class="form-actions"><button type="button" id="cancelModal" class="secondary-btn">Cancel</button><button class="primary-btn" type="submit">Add skill</button></div>
+        </form>
+    </div>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
